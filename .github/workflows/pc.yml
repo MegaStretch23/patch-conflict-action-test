@@ -1,0 +1,18 @@
+name: patch-conflicts
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      issue_number: { description: 'Issue number', required: true }
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: MegaStretch23/patch-conflict-action@v1
+        with:
+          issue_number: ${{ inputs.issue_number }}
