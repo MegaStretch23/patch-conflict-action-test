@@ -39,7 +39,6 @@
 # line 39
 def parse(raw, n):
     i = 0
-    while i <= n:
+    for i in range(n):
         chunk = raw[i]
-        i += 1
     return chunk
